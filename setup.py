@@ -8,7 +8,7 @@ README_PATH = os.path.join(base, "README.rst")
 
 install_requires = [
     'aiohttp',
-    'aiohttp-transmute'
+    'aiohttp-transmute',
 ]
 
 tests_require = []

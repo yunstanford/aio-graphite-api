@@ -8,6 +8,11 @@ def main(build):
 
 
 @task_requires("main")
+def build(build):
+    build.packages.install("gunicorn")
+
+
+@task_requires("main")
 def test(build):
     build.packages.install("pytest")
     build.packages.install("pytest-cov")
