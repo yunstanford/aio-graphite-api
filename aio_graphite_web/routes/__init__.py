@@ -11,7 +11,7 @@ async def handle(request):
     body = get_template("index.html").render(
         config=request.app["config"]
     ).encode("UTF-8")
-    return web.Response(body=body)
+    return web.Response(body=body, content_type='text/html')
 
 
 def add_routes(app):
