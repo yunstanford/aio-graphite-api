@@ -1,12 +1,17 @@
 import os
 import subprocess
-from uranium import task_requires
+from uranium import task_requires, rule
+from uranium.rules import Once
+
+
+ROOT = os.path.dirname(os.path.realpath("__file__"))
 
 
 def main(build):
     build.packages.install(".", develop=True)
 
 
+@rule(Once())
 @task_requires("main")
 def build(build):
     build.packages.install("gunicorn")
@@ -26,6 +31,16 @@ def test(build):
     ] + build.options.args)
     build.executables.run([
         "flake8", "aio_graphite_web", "tests"
+    ])
+
+
+@task_requires("main")
+def dev(build):
+    build.executables.run([
+        "{0}/bin/gunicorn".format(ROOT),
+        "aio_graphite_web.main:app",
+        "-c",
+        "{0}/config/gunicorn_prod.py"
     ])
 
 
