@@ -6,5 +6,5 @@ async def ping():
 	return {}
 
 
-def add_zon_test_api(app):
+def add_ping_api(app):
 	app.router.add_transmute_route(ping)

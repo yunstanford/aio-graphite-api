@@ -40,7 +40,7 @@ def dev(build):
         "{0}/bin/gunicorn".format(ROOT),
         "aio_graphite_web.main:app",
         "-c",
-        "{0}/config/gunicorn_prod.py"
+        "{0}/config/gunicorn_prod.py".format(ROOT)
     ])
 
 
