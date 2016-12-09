@@ -7,8 +7,10 @@ base = os.path.dirname(os.path.abspath(__file__))
 README_PATH = os.path.join(base, "README.rst")
 
 install_requires = [
+    'pyyaml',
     'aiohttp',
     'aiohttp-transmute',
+    'schematics>=2.0.0a1',
 ]
 
 tests_require = []

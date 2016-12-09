@@ -1,32 +1,30 @@
+import asyncio
 import os
-import aiohttp
+import logging
+import sys
+from .app import create_app
 from aiohttp import web
-from aiohttp_transmute import TransmuteUrlDispatcher
-from .routes import add_routes
+import yaml
+from .models.config import Config
+
+ROOT_DIR = os.path.dirname(os.path.dirname(__file__))
+DEFAULT_CONFIG_PATH = os.path.join(ROOT_DIR, "config", "config.yaml")
 
 
-async def create_app(loop, config, **kwargs):
-    # Application: synonym for web-server. 
-    # loop: event loop used for processing HTTP requests.
-    # router: dispatches url to request handler.
-    # For more info http://aiohttp.readthedocs.io/en/stable/web_reference.html#application-and-router
-    app = web.Application(
-        loop=loop,
-        # a custom router is needed to help find the transmute functions.
-        # To allow aiohttp-transmute to autodocument your library, 
-        # you must use the TransmuteUrlDispatcher as your application’s router
-        router=TransmuteUrlDispatcher(),
-    )
+def from_yaml(path):
+    with open(path) as fh:
+        return Config(yaml.load(fh.read()))
 
-    # register supported urls in router
-    add_routes(app)
 
-    # Application is a dict-like object, you can use it to share data globally 
-    # for later access from a handler via the Request.app property.
-    # http://aiohttp.readthedocs.io/en/stable/web.html#data-sharing
-    app["config"] = config
-    app.update(**kwargs)
+LOG = logging.getLogger(__name__)
 
-    # Any Initial Work Here
+config_path = DEFAULT_CONFIG_PATH
+config = from_yaml(config_path)
 
-    return app
+# Get the event loop for the current context (or current thread).
+# https://docs.python.org/3/library/asyncio-eventloops.html
+loop = asyncio.get_event_loop()
+
+# creates an application object.
+# run_until_complete runs the event loop until the task is complete.
+app = loop.run_until_complete(create_app(loop, config))

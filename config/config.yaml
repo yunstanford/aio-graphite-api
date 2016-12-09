@@ -1,0 +1,13 @@
+cluster_servers:
+    - 
+carbon_conn_hosts:
+    - 127.0.0.1:7102:a
+      127.0.0.1:7202:b
+      127.0.0.1:7302:c
+      127.0.0.1:7402:d
+      127.0.0.1:7502:e
+      127.0.0.1:7602:f
+      127.0.0.1:7702:g
+      127.0.0.1:7802:h
+storage_dir: /Users/yunx/stash/app_data/zillow-graphite/storage
+carbon_conn_timeout: 7.0
