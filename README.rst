@@ -1,7 +1,7 @@
 aio-graphite-web
 ================
 
-async graphite-web.
+async graphite-web written in Python3.5.
 
 Dev mode.
 
