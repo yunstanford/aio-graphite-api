@@ -16,17 +16,18 @@ No Graph Rendering.
 Build
 -----
 
-"""
-./uranium build
-"""
+.. code::
+
+	./uranium build
 
 ----
 dev
 ----
 
-"""
-./uranium dev
-"""
+.. code::
+
+	./uranium dev
+
 
 ------
 config
