@@ -1,3 +1,8 @@
+storage_dir: /Users/yunx/stash/app_data/zillow-graphite/storage
+carbon_conn_timeout: 7.0
+replication_factor: 1
+carbon_metric_prefix: carbon
+carbon_cache_hashing_type: carbon_ch
 cluster_servers:
     - 
 carbon_conn_hosts:
@@ -9,5 +14,3 @@ carbon_conn_hosts:
       127.0.0.1:7602:f
       127.0.0.1:7702:g
       127.0.0.1:7802:h
-storage_dir: /Users/yunx/stash/app_data/zillow-graphite/storage
-carbon_conn_timeout: 7.0

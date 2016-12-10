@@ -1,11 +1,13 @@
 aio-graphite-web
 ================
 
-async graphite-web written in Python3.5.
+Highlights:
 
 Dev mode.
 
-Designed and focused for fast and large volumes of queries.
+async graphite-web written in Python3.5.
+
+Designed for and focused on fast and large volumes of queries.
 
 No Graph Rendering.
 
@@ -25,3 +27,9 @@ dev
 """
 ./uranium dev
 """
+
+------
+config
+------
+
+All configs should go into config folder.
