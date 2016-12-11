@@ -27,6 +27,13 @@ async def create_app(loop, config, **kwargs):
     app["config"] = config
     app.update(**kwargs)
 
-    # Any Initial Work Here
+    # Any Initializing Work should be here.
+    # For example, initialize carbon conn pool
+    await init_app(app, config)
 
     return app
+
+
+async def init_app(app, config):
+    if "conn" not in app:
+        app["conn"] = init_conn_pool(config)

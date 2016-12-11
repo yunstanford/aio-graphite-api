@@ -33,4 +33,4 @@ dev
 config
 ------
 
-All configs should go into config folder.
+All configs should put into config folder.
