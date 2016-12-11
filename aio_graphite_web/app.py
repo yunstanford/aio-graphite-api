@@ -37,3 +37,5 @@ async def create_app(loop, config, **kwargs):
 async def init_app(app, config):
     if "conn" not in app:
         app["conn"] = init_conn_pool(config)
+
+    if "cluster"
