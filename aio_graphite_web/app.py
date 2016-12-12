@@ -38,4 +38,5 @@ async def init_app(app, config):
     if "conn" not in app:
         app["conn"] = init_conn_pool(config)
 
-    if "cluster"
+    if "cluster" not in app:
+        app["cluster"] = init_cluster(config)
