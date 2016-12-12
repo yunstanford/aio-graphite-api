@@ -7,10 +7,10 @@ class Cluster:
 	graphite-web.
 	"""
 
-	def __init__(self, cluster, protocol="http"):
+	def __init__(self, cluster, protocol="http", timeout):
 		self.cluster = cluster
 		self.session = aiohttp.ClientSession()
-		self.time_out = 7
+		self.time_out = timeout
 
 
 	async def query(self, server, target, fromTime, untilTime):
