@@ -15,7 +15,7 @@ install_requires = [
 
 tests_require = []
 
-setup(name='aio-graphite-web',
+setup(name='aio-graphite-api',
       version='0.1.1',
       description='',
       long_description=open(README_PATH).read(),

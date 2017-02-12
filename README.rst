@@ -1,11 +1,11 @@
-aio-graphite-web
+aio-graphite-api
 ================
 
 Highlights:
 
 Dev mode.
 
-async graphite-web written in Python3.5.
+async graphite-api written in Python3.5.
 
 Designed for and focused on fast and large volumes of queries.
 
