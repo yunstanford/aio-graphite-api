@@ -36,6 +36,8 @@ class Cluster:
 	async def query_all(self, target, fromTime, untilTime):
 		"""
 		query all servers in cluster.
+
+		#Todoooooooo optimization: understand same consistent hashing as used in writing metrics.
 		"""
 		results = []
 		for server in self.cluster:
