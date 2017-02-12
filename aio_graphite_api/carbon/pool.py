@@ -5,6 +5,16 @@ from aio_graphite_web.hashing.hashingring import ConsistentHashRing
 from .connection import CarbonConn
 
 
+async def init_conn_pool(config):
+    """
+    a helper function to init conn pool.
+    """
+    return await CarbonConnPool(config["carbon_conn_hosts"],
+                                int(config["replication_factor"]),
+                                config["carbon_cache_hashing_type"],
+                                config["loop"])
+
+
 class CarbonConnPoolException(Exception):
     pass
 

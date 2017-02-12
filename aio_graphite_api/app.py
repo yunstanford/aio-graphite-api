@@ -27,6 +27,9 @@ async def create_app(loop, config, **kwargs):
     app["config"] = config
     app.update(**kwargs)
 
+    # put loop as an attribute there
+    app["loop"] = loop
+
     # Any Initializing Work should be here.
     # For example, initialize carbon conn pool
     await init_app(app, config)
@@ -36,7 +39,7 @@ async def create_app(loop, config, **kwargs):
 
 async def init_app(app, config):
     if "conn" not in app:
-        app["conn"] = init_conn_pool(config)
+        app["conn"] = await init_conn_pool(config)
 
     if "cluster" not in app:
-        app["cluster"] = init_cluster(config)
+        app["cluster"] = await init_cluster(config)
