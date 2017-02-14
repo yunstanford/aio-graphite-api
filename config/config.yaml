@@ -23,3 +23,5 @@ carbon_conn_hosts:
       127.0.0.1:7802:h
 has_latest_data_in_carbon_cache:
   false
+graphite_web_cluster_protocol:
+  http

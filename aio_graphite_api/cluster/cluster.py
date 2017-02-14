@@ -1,6 +1,16 @@
 import aiohttp
 
 
+async def init_cluster(config):
+	"""
+	a helper function for initing a  cluster that talk with remote
+	graphite-web.
+	"""
+	return await Cluster(config["cluster_servers"],
+						 config["graphite_web_cluster_protocol"],
+						 config["cluster_timeout"])
+
+
 class Cluster:
 	"""
 	an aiohttp ClientSession class, which can talk with remote
