@@ -1,6 +1,8 @@
 from aiohttp import web
 from ..templates import get_template
 from .ping import add_ping_api
+from .find import add_find_api
+from .render import add_render_api
 from aiohttp_transmute import (
     add_swagger_api_route,
     create_swagger_json_handler
@@ -17,6 +19,8 @@ async def handle(request):
 def add_routes(app):
     # add apis
     add_ping_api(app)
+    add_render_api(app)
+    add_find_api(app)
     # route to swagger should be at the end, 
     # to ensure all routes are considered when
     # constructing the handler.

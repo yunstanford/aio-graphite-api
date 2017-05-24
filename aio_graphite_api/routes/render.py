@@ -11,5 +11,5 @@ async def render(request, target=None,
 	
 
 
-def add_carbon_render_api(app):
+def add_render_api(app):
 	app.router.add_transmute_route(render)
