@@ -11,6 +11,7 @@ install_requires = [
     'aiohttp',
     'aiohttp-transmute',
     'schematics>=2.0.0a1',
+    'whisper',
 ]
 
 tests_require = []

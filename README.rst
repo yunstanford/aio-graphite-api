@@ -5,11 +5,13 @@ Highlights:
 
 Dev mode.
 
-async graphite-api written in Python3.5.
+async graphite-api written in Python3.5+.
 
 Designed for and focused on fast and large volumes of queries.
 
 No Graph Rendering.
+
+No DB dependency.
 
 
 -----
